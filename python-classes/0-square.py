@@ -1,7 +1,7 @@
 class Square:
-
     def __init__(self, size):
-        pass
+        self.__size = size
         def area(self):
 
             return self.__size**2
+
