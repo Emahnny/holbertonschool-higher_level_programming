@@ -2,7 +2,7 @@
 
 from abc import ABC, abstractmethod
 
-class Animal:
+class Animal(ABC):
     def __init__(self, name):
         self.name = name
 
