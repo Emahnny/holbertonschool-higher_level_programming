@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """Defines a class Student."""
 
-
 class Student:
-    """Represent a student."""
+    """Represents a student."""
 
     def __init__(self, first_name, last_name, age):
         """Initialize a new Student.
@@ -25,9 +24,15 @@ class Student:
 
         Args:
             attrs (list): (Optional) The attributes to represent.
+
+        Returns:
+            dict: A dictionary representation of the Student instance.
         """
-        if (type(attrs) == list and
-                all(type(ele) == str for ele in attrs)):
+        if attrs is None:
+            return self.__dict__
+
+        if isinstance(attrs, list) and all(isinstance(ele, str) for ele in attrs):
             return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
 
-    return self.__dict__
+        return self.__dict__
+
