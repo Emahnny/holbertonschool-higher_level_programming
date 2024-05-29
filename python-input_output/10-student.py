@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a class Student."""
 
+
 class Student:
     """Represents a student."""
 
@@ -32,7 +33,10 @@ class Student:
             return self.__dict__
 
         if isinstance(attrs, list) and all(isinstance(ele, str) for ele in attrs):
-            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
+            return {
+                k: getattr(self, k)
+                for k in attrs if hasattr(self, k)
+            }
 
         return self.__dict__
 
