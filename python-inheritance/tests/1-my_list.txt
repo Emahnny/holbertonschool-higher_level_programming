@@ -1,6 +1,5 @@
-Check print_sorted() method
+Check initialization and basic append functionality
 
-Initialize MyList and append elements
 >>> MyList = __import__('1-my_list').MyList
 >>> my_list = MyList()
 >>> my_list.append(1)
@@ -11,7 +10,47 @@ Initialize MyList and append elements
 >>> print(my_list)
 [1, 4, 2, 3, 5]
 
-Check print_sorted() sorts the list without modifying original list
+Check print_sorted() method sorts the list in ascending order
+
 >>> my_list.print_sorted()
 >>> print(my_list)
-[1, 4, 2, 3, 5]
+[1, 2, 3, 4, 5]
+
+Check print_sorted() does not modify the original list
+
+>>> my_list.print_sorted()
+>>> print(my_list)
+[1, 2, 3, 4, 5]
+
+Check sorting with duplicate elements
+
+>>> my_list.append(2)
+>>> my_list.append(1)
+>>> my_list.print_sorted()
+>>> print(my_list)
+[1, 1, 2, 2, 3, 4, 5]
+
+Check sorting with negative numbers
+
+>>> my_list.append(-5)
+>>> my_list.append(-2)
+>>> my_list.print_sorted()
+>>> print(my_list)
+[-5, -2, 1, 1, 2, 2, 3, 4, 5]
+
+Check sorting with a large list
+
+>>> large_list = MyList()
+>>> for i in range(1000, 0, -1):
+...     large_list.append(i)
+>>> large_list.print_sorted()
+>>> print(large_list)
+[1, 2, 3, ..., 1000]
+
+Check sorting an empty list
+
+>>> empty_list = MyList()
+>>> empty_list.print_sorted()
+>>> print(empty_list)
+[]
+
