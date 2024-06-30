@@ -3,7 +3,7 @@
     Define the MyList class
 """
 
-class Mylist(list):
+class MyList(list):
     """
         This class inherits from list.
         Attributes:
