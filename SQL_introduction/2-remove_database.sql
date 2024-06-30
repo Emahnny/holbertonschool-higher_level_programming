@@ -1,2 +1,2 @@
--- Content: Remove a database
-REMOVE DATABASE hbtn_0c_0;
+-- Script deletes database
+DROP DATABASE IF EXISTS hbtn_0c_0
