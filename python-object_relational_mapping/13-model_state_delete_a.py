@@ -22,3 +22,4 @@ if __name__ == "__main__":
     session = Session(engine)
     session.query(State).where(State.name.ilike("%a%")).delete()
     session.commit()
+    
