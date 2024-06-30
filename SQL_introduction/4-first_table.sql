@@ -1,0 +1,1 @@
+Content: Create a table called first_table with the following attributes:

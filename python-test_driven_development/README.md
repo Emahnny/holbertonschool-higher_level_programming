@@ -1,5 +1,3 @@
-
-
 0. Integers addition
 
     0-add_integer.py: Python function that returns the integer addition of two numbers.
