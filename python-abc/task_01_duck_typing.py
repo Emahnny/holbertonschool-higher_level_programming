@@ -29,11 +29,9 @@ class Circle(Shape):
         """Initialize a Circle with a given radius.
 
         Args:
-            radius (float): The radius of the circle.
+            radius (float): The radius of the circle. If negative, set to 0.
         """
-        if radius < 0:  # Verificación para radio negativo
-            raise ValueError("Radius cannot be negative")
-        self.radius = radius
+        self.radius = max(0, radius)  # Ensure radius is non-negative
 
     def area(self):
         """Calculate the area of the circle.
@@ -51,35 +49,6 @@ class Circle(Shape):
         """
         return 2 * math.pi * self.radius
 
-class Rectangle(Shape):
-    """Class representing a rectangle, inheriting from Shape."""
-
-    def __init__(self, width, height):
-        """Initialize a Rectangle with a given width and height.
-
-        Args:
-            width (float): The width of the rectangle.
-            height (float): The height of the rectangle.
-        """
-        self.width = width
-        self.height = height
-
-    def area(self):
-        """Calculate the area of the rectangle.
-
-        Returns:
-            float: The area of the rectangle.
-        """
-        return self.width * self.height
-
-    def perimeter(self):
-        """Calculate the perimeter of the rectangle.
-
-        Returns:
-            float: The perimeter of the rectangle.
-        """
-        return 2 * (self.width + self.height)
-
 def shape_info(shape):
     """Print the area and perimeter of a shape.
 
@@ -92,10 +61,10 @@ def shape_info(shape):
 # Example usage:
 if __name__ == "__main__":
     circle = Circle(5)
-    rectangle = Rectangle(4, 7)
+    circle_negative = Circle(-5)  # Should set radius to 0 automatically
 
     print("Circle:")
     shape_info(circle)  # Should print the area and perimeter of the circle
 
-    print("\nRectangle:")
-    shape_info(rectangle)  # Should print the area and perimeter of the rectangle
+    print("\nNegative Circle:")
+    shape_info(circle_negative)  # Should print the area and perimeter of the circle with radius 0
