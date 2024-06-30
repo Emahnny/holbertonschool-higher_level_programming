@@ -10,3 +10,4 @@ def add_attribute(cls, name, value):
     if hasattr(cls, "__dict__") is False:
         raise TypeError("can't add new attribute")
     setattr(cls, name, value)
+    return None
