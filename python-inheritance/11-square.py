@@ -5,7 +5,11 @@ Rectangle = __import__('9-rectangle').Rectangle
 class Square(Rectangle):
 
         """
-        Square class
+         Square  inherits from Rectangle
+        Attributes:
+            size (int): side of square
+        Methods:
+            __init__ - initialises the square
         """
 
         def __init__(self, size):
@@ -26,4 +30,5 @@ class Square(Rectangle):
             """
             Return a string representation of the square
             """
-            return "[Square] {}/{}".format(self.__size, self.__size)
+            return ("[{}] {}/{}".format(type(self).__name__,
+                                    self.__size, self.__size))

@@ -1,11 +1,19 @@
 #!/usr/bin/python3
 
+"""
+    10-square: class Square from Rectangle
+"""
+
 Rectangle = __import__('9-rectangle').Rectangle
 
 class Square(Rectangle):
 
         """
-        Square class
+        Square  inherits from Rectangle
+        Attributes:
+            size (int): side of square
+        Methods:
+            __init__ - initialises the square
         """
 
         def __init__(self, size):
@@ -20,6 +28,5 @@ class Square(Rectangle):
             """
             Calculate the area of a square
             """
-            return self.__size ** 2
-
-       
+            return ("[{}] {}/{}".format("Rectangle",
+                                        self.__size, self.__size))

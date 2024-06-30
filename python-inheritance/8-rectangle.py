@@ -5,7 +5,14 @@ BaseGeometry = __import__('7-base_geometry').BaseGeometry
 class Rectangle(BaseGeometry):
 
         """
-        Rectangle class
+            Rectangle class
+        Rectangle inerits from BaseGeometry
+        Attributes:
+            width (int): width of rectangle.
+            height (int): height of rectangle.
+        Methods:
+            __init__ - initialises the Rectangle.
+
         """
 
         def __init__(self, width, height):
