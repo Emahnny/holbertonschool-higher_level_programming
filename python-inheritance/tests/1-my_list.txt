@@ -1,78 +1,70 @@
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+if __name__ == "__main__":
+    bg = BaseGeometry()
 
+    # Testing area() method
+    try:
+        bg.area()
+    except Exception as e:
+        assert str(e) == "area() is not implemented", f"Unexpected exception message: {str(e)}"
 
->>> bg = BaseGeometry()
->>> bg.area()
-Traceback (most recent call last):
-	...
-Exception: area() is not implemented
+    # Testing integer_validator() method
+    try:
+        bg.integer_validator("Silvia", 20)
+    except Exception as e:
+        print(f"Test 1 failed: {str(e)}")
 
->>> bg.integer_validator("Silvia", 20)
+    # Check when value is not an int
+    try:
+        bg.integer_validator("Silvia", "hi")
+    except TypeError as e:
+        assert str(e) == "Silvia must be an integer", f"Unexpected exception message: {str(e)}"
 
+    try:
+        bg.integer_validator("", True)
+    except TypeError as e:
+        assert str(e) == " must be an integer", f"Unexpected exception message: {str(e)}"
 
-Check when value is not an int
+    try:
+        bg.integer_validator("str", None)
+    except TypeError as e:
+        assert str(e) == "str must be an integer", f"Unexpected exception message: {str(e)}"
 
->>> bg.integer_validator("Silvia", "hi")
-Traceback (most recent call last):
-	...
-TypeError: Silvia must be an integer
+    # Check when value is less than or equal to zero
+    try:
+        bg.integer_validator("Silvia", -9)
+    except ValueError as e:
+        assert str(e) == "Silvia must be greater than 0", f"Unexpected exception message: {str(e)}"
 
->>> bg.integer_validator("", True)
-Traceback (most recent call last):
-	...
-TypeError:  must be an integer
+    try:
+        bg.integer_validator("int", 0)
+    except ValueError as e:
+        assert str(e) == "int must be greater than 0", f"Unexpected exception message: {str(e)}"
 
->>> bg.integer_validator("str", None)
-Traceback (most recent call last):
-	...
-TypeError: str must be an integer
+    # Check other non-integer types
+    for value in [[1, 2, 3], (1, 2), {2, 4}, float("inf")]:
+        try:
+            bg.integer_validator("int", value)
+        except TypeError as e:
+            assert str(e) == "int must be an integer", f"Unexpected exception message: {str(e)}"
 
-Check when value is less than or equal to zero
->>> bg.integer_validator("Silvia", -9)
-Traceback (most recent call last):
-	...
-ValueError: Silvia must be greater than 0
+    # Check when no argument is passed
+    try:
+        bg.integer_validator()
+    except TypeError as e:
+        assert str(e) == "integer_validator() missing 2 required positional arguments: 'name' and 'value'", \
+            f"Unexpected exception message: {str(e)}"
 
->>> bg.integer_validator("int", 0)
-Traceback (most recent call last):
-	...
-ValueError: int must be greater than 0
+    # Check when one argument is passed
+    try:
+        bg.integer_validator("Silvia")
+    except TypeError as e:
+        assert str(e) == "integer_validator() missing 1 required positional argument: 'value'", \
+            f"Unexpected exception message: {str(e)}"
 
->>> bg.integer_validator("int", [1, 2, 3])
-Traceback (most recent call last):
-	...
-TypeError: int must be an integer
+    try:
+        bg.integer_validator(9)
+    except TypeError as e:
+        assert str(e) == "integer_validator() missing 1 required positional argument: 'value'", \
+            f"Unexpected exception message: {str(e)}"
 
->>> bg.integer_validator("int", (1, 2))
-Traceback (most recent call last):
-	...
-TypeError: int must be an integer
-
->>> bg.integer_validator("int", {2, 4})
-Traceback (most recent call last):
-	...
-TypeError: int must be an integer
-
-Check when value is too large (inf)
->>> bg.integer_validator("Silvia", float("inf"))
-Traceback (most recent call last):
-	...
-TypeError: Silvia must be an integer
-
-
-Check when no argument is passed
->>> bg.integer_validator()
-Traceback (most recent call last):
-	...
-TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
-
-Check when one argument is passed
->>> bg.integer_validator("Silvia")
-Traceback (most recent call last):
-	...
-TypeError: integer_validator() missing 1 required positional argument: 'value'
-
->>> bg.integer_validator(9)
-Traceback (most recent call last):
-	...
-TypeError: integer_validator() missing 1 required positional argument: 'value'
+    print("All tests passed successfully.")
