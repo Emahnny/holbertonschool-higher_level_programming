@@ -53,4 +53,3 @@ Check sorting an empty list
 >>> empty_list.print_sorted()
 >>> print(empty_list)
 []
-
