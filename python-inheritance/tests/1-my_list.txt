@@ -1,6 +1,7 @@
-Check initialization and basic append functionality
 
 >>> MyList = __import__('1-my_list').MyList
+
+
 >>> my_list = MyList()
 >>> my_list.append(1)
 >>> my_list
@@ -8,16 +9,10 @@ Check initialization and basic append functionality
 >>> my_list.append(2)
 >>> my_list
 [1, 2]
-
-Check pop() method
-
 >>> my_list.pop()
 2
 >>> my_list
 [1]
-
-Check multiple appends and print_sorted() method
-
 >>> my_list.append(4)
 >>> my_list.append(6)
 >>> my_list.append(3)
@@ -26,14 +21,7 @@ Check multiple appends and print_sorted() method
 >>> my_list
 [1, 4, 6, 3]
 
-Check clear() method
-
 >>> my_list.clear()
->>> my_list.print_sorted()
-[]
-
-Check append(), copy(), count(), index() methods
-
 >>> my_list.append(1)
 >>> my_list.append(5)
 >>> my_list.append(8)
@@ -48,37 +36,27 @@ Check append(), copy(), count(), index() methods
 1
 >>> my_list.index(3)
 Traceback (most recent call last):
-    ...
+	...
 ValueError: 3 is not in list
-
-Check pop(index) method
 
 >>> my_list.pop(3)
 7
 >>> my_list
 [1, 5, 8, 9, 2, 0]
 
-Check insert() method
-
 >>> my_list.insert(9, 0)
 >>> my_list
 [1, 5, 8, 9, 2, 0, 0]
 
-Check pop(index) out of range
-
 >>> my_list.pop(20)
 Traceback (most recent call last):
-    ...
+	...
 IndexError: pop index out of range
-
-Check TypeError for print_sorted()
 
 >>> my_list.print_sorted(8)
 Traceback (most recent call last):
-    ...
+	...
 TypeError: print_sorted() takes 1 positional argument but 2 were given
-
-Check clear() and print_sorted() after appending negative numbers
 
 >>> my_list.clear()
 >>> my_list.print_sorted()
