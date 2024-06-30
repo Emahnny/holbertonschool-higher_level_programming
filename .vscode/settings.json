@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./python-object_relational_mapping/6-"
+    ]
+}
