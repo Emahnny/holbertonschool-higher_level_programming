@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """
-    1-my_list: class MyList
+    Define the MyList class
 """
 
-
-class MyList(list):
+class Mylist(list):
     """
         This class inherits from list.
         Attributes:
@@ -13,6 +12,6 @@ class MyList(list):
     """
     def print_sorted(self):
         """
-           prints a list in ascending order.
+            Print a sorted list
         """
         print(sorted(self))
