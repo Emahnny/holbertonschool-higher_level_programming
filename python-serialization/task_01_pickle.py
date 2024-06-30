@@ -1,51 +1,41 @@
 #!/usr/bin/python3
+"""Defines class and serializes it"""
 import pickle
 
 
 class CustomObject:
+    """class displays attributes
+    Args:
+        name: string
+        age: integer
+        is_student: boolean
+    """
     def __init__(self, name, age, is_student):
-        """Initializes a CustomObject instance.
-
-        Args:
-            name (str): The name of the person.
-            age (int): The age of the person.
-            is_student (bool): Indicates if the person is a student.
-        """
+        """method initializes object"""
         self.name = name
         self.age = age
         self.is_student = is_student
 
     def display(self):
-        """Displays the attributes of the CustomObject instance."""
+        """method prints out attributes"""
         print(f"Name: {self.name}")
-        print(f"Age: {self.age}")
+        print(f"age: {self.age}")
         print(f"Is Student: {self.is_student}")
 
     def serialize(self, filename):
-        """Serializes the object to a file.
-
-        Args:
-            filename (str): The name of the file to save the serialized object.
-        """
+        """method serializes the current instance of the object"""
         try:
-            with open(filename, 'wb') as file:
-                pickle.dump(self, file)
-        except Exception as e:
-            print(f"Error serializing object: {e}")
+            with open(filename, "wb") as f:
+                pickle.dump(self, f)
+        except:
+            return None
 
     @classmethod
     def deserialize(cls, filename):
-        """Deserializes an object from a file.
-
-        Args:
-            filename (str): The name of the file to load the serialized object from.
-
-        Returns:
-            CustomObject: The deserialized object, or None if deserialization failed.
-        """
+        """method returns instance of custom object"""
         try:
-            with open(filename, 'rb') as file:
-                return pickle.load(file)
-        except (FileNotFoundError, pickle.UnpicklingError) as e:
-            print(f"Error deserializing object: {e}")
+            with open(filename, "rb") as f:
+                ret = pickle.load(f)
+            return ret
+        except:
             return None
