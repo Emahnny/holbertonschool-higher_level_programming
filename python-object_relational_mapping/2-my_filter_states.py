@@ -17,4 +17,3 @@ SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY states.id ASC"""
         print(row)
     cur.close()
     conn.close()
-    

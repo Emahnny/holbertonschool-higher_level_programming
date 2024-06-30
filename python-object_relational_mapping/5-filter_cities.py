@@ -17,4 +17,3 @@ if __name__ == "__main__":
     print(", ".join(map(lambda x: x[0], cur.fetchall())))
     cur.close()
     conn.close()
-    

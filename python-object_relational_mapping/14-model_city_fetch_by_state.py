@@ -26,4 +26,3 @@ if __name__ == "__main__":
 
     for city, state in cities:
         print(f"{state.name}: ({city.id}) {city.name}")
-    
