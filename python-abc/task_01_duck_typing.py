@@ -31,7 +31,9 @@ class Circle(Shape):
         Args:
             radius (float): The radius of the circle.
         """
-        self.radius = max(0, radius)  # Ensure radius is non-negative
+        if radius < 0:
+            raise ValueError("Radius cannot be negative")
+        self.radius = radius
 
     def area(self):
         """Calculate the area of the circle.
@@ -89,8 +91,8 @@ def shape_info(shape):
 
 # Example usage:
 if __name__ == "__main__":
-    circle = Circle(5)
-    rectangle = Rectangle(4, 7)
+    circle = Circle(radius=5)
+    rectangle = Rectangle(width=4, height=7)
 
     print("Circle:")
     shape_info(circle)  # Should print the area and perimeter of the circle
