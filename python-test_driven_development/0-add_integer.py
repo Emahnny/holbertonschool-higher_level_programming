@@ -1,45 +1,19 @@
 #!/usr/bin/python3
+# 0-add_integer.py
 
-"""
-    Function divides all elements of a matrix
-
-    Example:
-       a = 5
-       b = 10
-
-       add_integer(a, b)
-
-       15
-"""
+"""Defines an integer addition function."""
 
 
 def add_integer(a, b=98):
+    """Return the integer addition of a and b.
+
+    Float arguments are typecasted to ints before addition is performed.
+
+    Raises:
+        TypeError: If either of a or b is a non-integer and non-float.
     """
-        Args:
-            a: first integer
-            b: second integer
-
-        Returns:
-            Sum of the two integers
-    """
-
-    if not isinstance(a, (float, int)):
-        if a is not None:
-            raise TypeError("a must be an integer")
-        raise ValueError("a must be an integer")
-
-    if not isinstance(b, (float, int)):
-        if b is not None:
-            raise TypeError("b must be an integer")
-        raise ValueError("b must be an integer")
-
-    if type(a) is float and type(b) is float:
-        return int(a) + int(b)
-
-    elif type(a) is not float and type(b) is float:
-        return a + int(b)
-
-    elif type(a) is float and type(b) is not float:
-        return int(a) + b
-
-    return a + b
+    if ((not isinstance(a, int) and not isinstance(a, float))):
+        raise TypeError("a must be an integer")
+    if ((not isinstance(b, int) and not isinstance(b, float))):
+        raise TypeError("b must be an integer")
+    return (int(a) + int(b))
