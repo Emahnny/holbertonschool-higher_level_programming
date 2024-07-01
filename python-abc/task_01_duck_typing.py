@@ -19,9 +19,13 @@ class Circle(Shape):
 
     def __init__(self, radius):
         """Initialize a Circle with a given radius."""
+        self._validate_radius(radius)
+        self.radius = radius
+
+    def _validate_radius(self, radius):
+        """Validate that radius is non-negative."""
         if radius < 0:
             raise ValueError("Radius cannot be negative")
-        self.radius = radius
 
     def area(self):
         """Calculate the area of the circle."""
@@ -36,10 +40,14 @@ class Rectangle(Shape):
 
     def __init__(self, width, height):
         """Initialize a Rectangle with a given width and height."""
-        if width < 0 or height < 0:
-            raise ValueError("Width and height must be non-negative")
+        self._validate_dimensions(width, height)
         self.width = width
         self.height = height
+
+    def _validate_dimensions(self, width, height):
+        """Validate that width and height are non-negative."""
+        if width < 0 or height < 0:
+            raise ValueError("Width and height must be non-negative")
 
     def area(self):
         """Calculate the area of the rectangle."""
@@ -64,3 +72,9 @@ if __name__ == "__main__":
 
     print("\nRectangle:")
     shape_info(rectangle)  # Should print the area and perimeter of the rectangle
+
+    # Additional test for negative dimensions in Rectangle
+    try:
+        rectangle_negative = Rectangle(width=-4, height=-7)
+    except ValueError as e:
+        print(f"Error creating rectangle with negative dimensions: {str(e)}")
