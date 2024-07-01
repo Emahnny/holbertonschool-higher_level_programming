@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 def print_zen():
     zen_of_python = """
     The Zen of Python, by Tim Peters
