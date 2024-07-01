@@ -23,5 +23,3 @@ def print_zen():
     Namespaces are one honking great idea -- let's do more of those!
     """
     print(zen_of_python)
-
-print_zen()
